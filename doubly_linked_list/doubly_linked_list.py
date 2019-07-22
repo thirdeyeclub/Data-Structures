@@ -53,7 +53,9 @@ class DoublyLinkedList:
     self.length += 1
 
   def remove_from_head(self):
-    pass
+    if self.head is not None:
+      self.head.delete()
+      self.length -= 1
 
   def add_to_tail(self, value):
     if self.tail is None:
@@ -65,7 +67,9 @@ class DoublyLinkedList:
     self.length += 1
 
   def remove_from_tail(self):
-    pass
+     if self.tail is not None:
+      self.tail.delete()
+      self.length -= 1
 
   def move_to_front(self, node):
     pass
@@ -74,7 +78,7 @@ class DoublyLinkedList:
     pass
 
   def delete(self, node):
-    self.delete(node)
+    return self.delete(node)
     
   def get_max(self):
-    pass
+    return self.length()
