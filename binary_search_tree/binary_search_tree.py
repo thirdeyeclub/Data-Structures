@@ -1,4 +1,4 @@
-class BinarySearchTree:
+class BinarySearchTreeNode:
   def __init__(self, value):
     self.value = value
     self.left = None
@@ -7,20 +7,35 @@ class BinarySearchTree:
   def insert(self, value):
     if value < self.value:
       if not self.left:
-        self.left = BinarySearchTree(value)
+        self.left = BinarySearchTreeNode(value)
       else:
         self.left.insert(value)
     else:
       if not self.right:
-        self.right = BinarySearchTree(value)
+        self.right = BinarySearchTreeNode(value)
       else: 
         self.right.insert(value)
 
   def contains(self, target):
-    pass
+    if self.value == target:
+      return True
+    else:
+      if target > self.value:
+        self.left = BinarySearchTreeNode(self.left)
+        self.left.contains(target)
+      else:
+        self.right = BinarySearchTreeNode(self.right)
+        self.right.contains(target)
+
 
   def get_max(self):
-    pass
+    if self.value == None:
+      return self.value
+    else:
+      self.right = BinarySearchTreeNode(self.right)
+      self.right.get_max()
+      #recursion
+
 
   def for_each(self, cb):
     pass
