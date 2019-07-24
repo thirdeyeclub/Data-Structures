@@ -4,16 +4,17 @@ class Heap:
     self.comparator = comparator
 
   def insert(self, value):
-    pass
+    self.storage.append(value)
+    self._bubble_up(self.get_size)
 
   def delete(self):
     pass
 
   def get_priority(self):
-    pass
+    return self.storage[0]
 
   def get_size(self):
-    pass
+    return len(self.storage)
 
   def _bubble_up(self, index):
     while index > 0:
