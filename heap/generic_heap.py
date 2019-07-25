@@ -31,4 +31,15 @@ class Heap:
 
 
   def _sift_down(self, index):
-    pass
+    left = (index * 2) + 2
+    right = (index * 2) + 1
+    parent = index #this is the node we need to target
+
+    if parent < left:
+      parent = left
+    if parent < right:
+      parent = right
+    if parent != index:
+      self.storage[index] , self.storage[parent] = self.storage[parent] , self.storage[index]
+      self._sift_down()
+    #runs recuervly

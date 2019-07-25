@@ -1,13 +1,22 @@
-# 100
-# 44 33
-# 43,42 of 44 & 15 , 23 of 33
-# 40,38 of 43 & 11,9 of 42 & 10,2 of 15 & None,1 of 23
-# heap math
-arr = [100, 44, 33, 43, 42, 15, 23, 40, 38, 11, 9, 10, 2, 1]
 
-# left = 2*arr[i] + 1
+# Merge M Sorted Lists of Variable Length
+# Given M sorted lists of variable length, print them out in sorted order efficiently.
 
-def left(arr, index):
-    return arr[index^2 +1]
+Examples
+Input: Four sorted lists of variable length
 
-print(left(arr, 3))
+[10, 20, 30, 40], [15, 25, 35], [27, 29, 37, 48, 93], [32, 33]
+
+Output: 10, 15, 20, 25, 27, 29, 30, 32, 33, 35, 37, 40, 48, 93
+
+    # while index > 0:
+    #   #compare to parent
+    #   parent = (index -1)//2
+      
+    #   if self.storage[index] > self.storage[parent]:
+    #     self.storage[index] , self.storage[parent] = self.storage[parent] , self.storage[index]
+    #     index = parent
+    #   else: 
+    #     break
+
+def sort_arr(arr): 

@@ -1,4 +1,4 @@
-class BinarySearchTreeNode:
+class BinarySearchTree:
   def __init__(self, value):
     self.value = value
     self.left = None
@@ -7,12 +7,12 @@ class BinarySearchTreeNode:
   def insert(self, value):
     if value < self.value:
       if not self.left:
-        self.left = BinarySearchTreeNode(value)
+        self.left = BinarySearchTree(value)
       else:
         self.left.insert(value)
     else:
       if not self.right:
-        self.right = BinarySearchTreeNode(value)
+        self.right = BinarySearchTree(value)
       else: 
         self.right.insert(value)
 
@@ -20,12 +20,12 @@ class BinarySearchTreeNode:
     if self.value == target:
       return True
     else:
-      if target > self.value:
-        self.left = BinarySearchTreeNode(self.left)
-        self.left.contains(target)
+      if target < self.value:
+        if self.left:
+          return self.left.contains(target)
       else:
-        self.right = BinarySearchTreeNode(self.right)
-        self.right.contains(target)
+        if self.right:
+          return self.right.contains(target)
 
 
   def get_max(self):
@@ -37,8 +37,8 @@ class BinarySearchTreeNode:
 
 
   def for_each(self, cb):
-    cd(self.value)
+    cb(self.value)
     if self.left:
       self.left.for_each(cb)
     if self.right:
-      self.right.for_each
+      self.right.for_each(cb)

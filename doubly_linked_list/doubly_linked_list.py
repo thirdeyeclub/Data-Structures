@@ -94,10 +94,11 @@ class DoublyLinkedList:
       self.tail = new_node
 
   def remove_from_tail(self):
+    self.length -= 1
     if self.tail == self.head:
       current_tail = self.tail
       self.tail = None
-      self.tail = None
+      self.head = None
       return current_tail.value
     else:
       current_tail = self.tail
