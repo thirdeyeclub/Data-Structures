@@ -29,13 +29,16 @@ class BinarySearchTreeNode:
 
 
   def get_max(self):
-    if self.value == None:
+    if not self:
+      return None
+    if not self.right:
       return self.value
-    else:
-      self.right = BinarySearchTreeNode(self.right)
-      self.right.get_max()
-      #recursion
+    return self.right.get_max()
 
 
   def for_each(self, cb):
-    pass
+    cd(self.value)
+    if self.left:
+      self.left.for_each(cb)
+    if self.right:
+      self.right.for_each

@@ -8,7 +8,9 @@ class Heap:
     self._bubble_up(self.get_size)
 
   def delete(self):
-    pass
+    self.storage.pop()
+    self._bubble_up(self.get_size)
+    return self.get_size()
 
   def get_priority(self):
     return self.storage[0]
@@ -18,7 +20,7 @@ class Heap:
 
   def _bubble_up(self, index):
     while index > 0:
-      #compare to aprent
+      #compare to parent
       parent = (index -1)//2
       
       if self.storage[index] > self.storage[parent]:
